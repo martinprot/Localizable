@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+	<meta http-equiv="Content-Type" Content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<header>
+	<div>
+		<h1><a href="http://soft.appricot.fr/localizables">Localizables</a></h1>
+		<h2>Generate your localization files</h2>
+		<div class="promo">
+			<img src="logo.png" alt="appricot.fr" /><br/>
+			A tool from <a href="http://appricot.fr">Appricot media</a>
+		</div>
+	</div>
+</header>
+<div class="content">
+	<div id="box">
+		<div class="box_header">
+			Languages
+		</div>
+		<div class="box_content">
+
+		#for(element in document.elements) {
+			<a href='##(element.language.code)'><div>#(element.language.localized)</div></a>
+		}
+		</div>
+	</div>
+
+	#for(element in document.elements) {
+	<div class='lang_header'><a name='#(element.language.code)'>#(element.language.localized)</a><div class='selectall'>select all</div></div>
+	<div class='lang'>
+		#for(entry in element.entries) {
+			#if(entry.type == "comment") {
+				/* #(entry.value) */<br/>
+			}
+			#if(entry.type == "blank") {
+				<br/>
+			}
+			#if(entry.type == "translation") {
+				"#(entry.key)" = "#(entry.value)";<br/>
+			}
+		}
+	</div>
+	}
+</div>
+
+</body>
+</html>

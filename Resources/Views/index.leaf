@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+	<meta http-equiv="Content-Type" Content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<header>
+	<div>
+		<h1><a href="http://soft.appricot.fr/localizables">Localizables</a></h1>
+		<h2>Generate your localization files</h2>
+		<div class="promo">
+			<img src="logo.png" alt="appricot.fr" /><br/>
+			A tool from <a href="http://appricot.fr">Appricot media</a>
+		</div>
+	</div>
+</header>
+
+<div class="content">
+	<form method="POST" action="uploadcsv" enctype="multipart/form-data" class="inputForm">
+	     <!-- On limite le fichier à 1000Ko -->
+	     <p>Put your translated CSV file here.</p>
+	     <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+	     <input type="file" name="csv">
+	     <br/>
+	     <input type="submit" name="envoyer" value="Send" class="send">
+	</form>
+</div>
+<footer>
+	<div class="help">
+		<h3>how does it work ?</h3>
+		<p>Use your favorite spreadsheet editor to manage your translations, it will be easier for sharing with your client or translate team!</p>
+		<p>Just follow these 3 simple rules :</p>
+		<ol>
+			<li>Columns are the languages, lines are the sentences</li>
+			<li>The first line is the column titles (like "EN", "French", us")</li>
+			<li>The first column is the key. It should not be translated!</li>
+		</ol>
+		<img src="screen.png" alt="spreadsheet example"/>
+		
+		<h3>What's a CSV file?</h3>
+		<p>It's a text file that represents simple kinds of spreadsheet with values separated by commas.</p>
+		<p>You can easily export your spreadseet as a CSV file with your favorite spreadsheet editor.</p>
+		<p>For example, in Open office :</p>
+		<ol>
+			<li>Select File, Save As…</li>
+			<li>Select .csv as "File Type"</li>
+			<li>Save.</li>
+		</ol>
+	</div>
+</footer>
+
+</body>
+</html>
