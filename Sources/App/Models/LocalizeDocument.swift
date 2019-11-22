@@ -20,9 +20,9 @@ struct LocalizeDocument {
 	
 	func parseDocument() throws -> Document {
 		guard let firstLine = csvLines.first else { return .empty }
-		
-		// checks if there's at least one language
-		let languages: [Language] = firstLine.compactMap { cell in
+
+        // retrieving the language list (the first line, except the first column, wich is the key)
+		let languages: [Language] = firstLine.dropFirst().compactMap { cell in
 			let trimmedCell = cell.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
 			return Language(code: trimmedCell)
 		}

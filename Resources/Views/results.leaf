@@ -32,17 +32,10 @@
 	#for(element in document.elements) {
 	<div class='lang_header'><a name='#(element.language.code)'>#(element.language.localized)</a><div class='selectall'>select all</div></div>
 	<div class='lang'>
-		#for(entry in element.entries) {
-			#if(entry.type == "comment") {
-				/* #(entry.value) */<br/>
-			}
-			#if(entry.type == "blank") {
-				<br/>
-			}
-			#if(entry.type == "translation") {
-				"#(entry.key)" = "#(entry.value)";<br/>
-			}
-		}
+        <textarea>#for(entry in element.entries){#if(entry.type == "comment"){/* #(entry.value) */
+}#if(entry.type == "blank"){
+}#if(entry.type == "translation"){"#(entry.key)" = "#(entry.value)";
+}}</textarea>
 	</div>
 	}
 </div>

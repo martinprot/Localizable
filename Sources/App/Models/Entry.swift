@@ -21,7 +21,6 @@ class Language: Hashable, Codable {
 	var localized: String
 	
 	init?(code: String) {
-		if code.count != 2 { return nil }
 		self.code = code.lowercased()
 		self.localized = code.uppercased()
 	}
@@ -124,7 +123,12 @@ extension Entry: Codable {
 		case .translation(let key, let value):
 			try container.encode(EntryType.translation, forKey: .type)
 			try container.encode(key, forKey: .key)
-			try container.encode(value, forKey: .value)
+            if value.count > 0 {
+                try container.encode(value, forKey: .value)
+            }
+            else {
+                try container.encode(key, forKey: .value)
+            }
 		}
 	}
 }
