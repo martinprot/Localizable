@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
 <head>
-	<meta http-equiv="Content-Type" Content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Type" Content="text/html; charset=UTF-16">
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	<link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
 </head>
@@ -33,9 +33,8 @@
 	<div class='lang_header'><a name='#(element.language.code)'>#(element.language.localized)</a><div class='selectall'>select all</div></div>
 	<div class='lang'>
         <textarea>#for(entry in element.entries){#if(entry.type == "comment"){/* #(entry.value) */
-}#if(entry.type == "blank"){
-}#if(entry.type == "translation"){"#(entry.key)" = "#(entry.value)";
-}}</textarea>
+}#if(entry.type == "blank"){}
+#if(entry.type == "translation"){"#(entry.key)" = "#(entry.value)";}}</textarea>
 	</div>
 	}
 </div>
