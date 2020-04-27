@@ -21,7 +21,7 @@ final class CSVParserController {
             guard let fileContent = String(data: file.csv, encoding: .utf8) else {
                 throw Abort(.badRequest, reason: "Unreadable CSV file")
             }
-            let parser = CSVParser(csvData: fileContent, separator: ",")
+            let parser = CSVParser(csvData: fileContent, separator: ";")
             let lines = try parser.parse()
             let localizer = LocalizeDocument(csvLines: lines)
             return try localizer.parseDocument()
