@@ -39,9 +39,10 @@ struct LocalizeDocument {
 		try csvLines.dropFirst().forEach { columns in
 			lineNumber += 1
             guard let key = columns.first?.trimmingCharacters(in: .whitespacesAndNewlines), !key.isEmpty
-			else { return }
-			// Here, comment line
-			else if let match = self.commentRegex.firstMatch(in: key, options: [], range: NSRange(location: 0, length: key.count)) {
+			else {
+                return
+            }
+            if let match = self.commentRegex.firstMatch(in: key, options: [], range: NSRange(location: 0, length: key.count)) {
 				if let range = Range(match.range(at: 1), in: key) {
 					let commentString = String(key[range])
 					languages.forEach { entries[$0]?.append(.comment(commentString)) }
